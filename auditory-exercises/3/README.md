@@ -21,7 +21,7 @@ Goal: Predefined state that we want to achieve. If only one jar is important, fo
 
 Implement in Python a state representation about the problem for which, one of the possible initial states is like in the figure below
 
-![](./../images/explorer1.png)
+![](VI_2024_2025/images/explorer1.png)
 
 The little man needs to be brought to his home. The man can move on any adjacent field, horizontally or vertically. 
 The obstacles 1 and 2 are moving vertically. Each of the obstacles is moving one field in the adequate direction with each movement of the little man.
