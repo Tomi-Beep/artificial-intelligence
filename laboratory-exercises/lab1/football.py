@@ -25,8 +25,10 @@ class Football(Problem):
 
     def successor(self, state):
         successors = dict()
-        player = list(state[0])
-        ball = list(state[1])
+        player = state[0]
+        ball = state[1]
+
+        # state = player, ball
 
         all_moves = [(0, 1), (0, -1), (1, 0), (1, 1), (1, -1)]
         move_names = [
@@ -36,15 +38,16 @@ class Football(Problem):
             "gore-desno",
             "dolu-desno"
         ]
+
         for i in range(len(all_moves)):
             new_player = (player[0] + all_moves[i][0], player[1] + all_moves[i][1])
             if check_valid(new_player, ball, self.obstacles):
                 if new_player[0] == ball[0] and new_player[1] == ball[1]:
                     new_ball = (ball[0] + all_moves[i][0], ball[1] + all_moves[i][1])
                     if check_valid(new_player, new_ball, self.obstacles):
-                        successors["Turni topka " + move_names[i]] = (tuple(new_player), tuple(new_ball))
+                        successors["Turni topka " + move_names[i]] = (new_player, new_ball)
                 else:
-                    successors["Pomesti coveche " + move_names[i]] = (tuple(new_player), tuple(ball))
+                    successors["Pomesti coveche " + move_names[i]] = (new_player, ball)
         return successors
 
     def actions(self, state):
@@ -62,4 +65,4 @@ if __name__ == '__main__':
     ball = tuple([int(i) for i in input().split(',')])
     football = Football((player, ball), ((7, 2), (7, 3)))
     graf = breadth_first_graph_search(football)
-    print(graf.solution()) if graf is not None else print("No solution")
+    print(graf.solution()) if graf is not None else print("No Solution!")
