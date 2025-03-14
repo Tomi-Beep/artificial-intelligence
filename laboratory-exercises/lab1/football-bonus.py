@@ -79,4 +79,4 @@ if __name__ == '__main__':
     goalkeeper = ((6, 1), 1)
     football = Football((player, ball, goalkeeper), ((7, 1), (7, 2), (7, 3), (7, 4)))
     graf = breadth_first_graph_search(football)
-    print(graf.solution()) if graf is not None else print("No solution")
+    print(graf.solution()) if graf is not None else print("No Solution!")
